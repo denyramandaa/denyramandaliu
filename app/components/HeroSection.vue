@@ -9,17 +9,17 @@
       <h1 class="font-bebas text-[92px] lg:text-[184px] leading-none">
         DENY RAMANDA LIU
       </h1>
-      <p class="text-left lg:text-center font-smooch text-2xl lg:text-6xl">
+      <p class="text-left lg:text-center font-poppins text-2xl lg:text-4xl">
         Front-End Developer & Creative Engineer
       </p>
     </div>
     <div
-      class="w-full h-auto absolute bottom-0 left-0"
+      class="w-full h-full absolute bottom-0 left-0 flex items-end"
       :style="{ transform: imageTransform }"
     >
       <img
-        class="left-1/2 -translate-x-1/2 h-full z-10 relative lg:w-full max-w-[980px]"
-        src="/images/hero.png"
+        class="left-1/2 -translate-x-1/2 w-full h-auto lg:h-full z-10 relative lg:w-auto"
+        src="/images/hero-vertical.png"
         alt="hero"
         draggable="false"
       />
@@ -37,10 +37,18 @@
         DENY RAMANDA LIU
       </h2>
       <p
-        class="text-left lg:text-center font-smooch text-2xl lg:text-6xl text-white"
+        class="text-left lg:text-center font-poppins text-2xl lg:text-4xl text-white"
       >
         Front-End Developer & Creative Engineer
       </p>
+    </div>
+    <div class="flex flex-row lg:flex-col gap-4 absolute bottom-0 left-0 p-4">
+      <Icon name="brandico:linkedin-rect" class="text-white text-4xl" />
+      <Icon name="brandico:instagram" class="text-white text-4xl" />
+      <Icon
+        name="material-symbols-light:alternate-email-rounded"
+        class="text-white text-4xl"
+      />
     </div>
   </div>
 </template>
