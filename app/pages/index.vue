@@ -1,26 +1,10 @@
 <template>
   <div class="w-full font-poppins bg-black">
-    <div
-      class="fixed top-0 left-0 w-full flex items-center justify-between text-white z-50 font-bebas"
-    >
-      <p class="py-4 px-4 text-lg lg:py-8 lg:px-8 lg:text-2xl text-shadow">
-        About
-      </p>
-      <p class="py-4 px-4 text-lg lg:py-8 lg:px-8 lg:text-2xl text-shadow">
-        What I Do
-      </p>
-      <p class="py-4 px-4 text-lg lg:py-8 lg:px-8 lg:text-2xl text-shadow">
-        Projects
-      </p>
-      <p class="py-4 px-4 text-lg lg:py-8 lg:px-8 lg:text-2xl text-shadow">
-        Contact
-      </p>
-    </div>
-    <HeroSection />
-    <AboutMeSection />
-    <WhatIDoSection />
-    <ProjectsSection />
-    <ContactMeSection />
+    <HeroSection id="hero" />
+    <AboutMeSection id="about" />
+    <WhatIDoSection id="whatido" />
+    <ProjectsSection id="projects" />
+    <BlogSection id="blog" />
   </div>
 </template>
 
@@ -35,5 +19,26 @@
 }
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
+}
+:root {
+  --ease-hero: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-content: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-ui: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-fast: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-item {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity var(--reveal-duration, 700ms)
+      var(--reveal-ease, var(--ease-content)),
+    transform var(--reveal-duration, 700ms)
+      var(--reveal-ease, var(--ease-content));
+  will-change: transform, opacity;
+}
+
+.reveal-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 </style>

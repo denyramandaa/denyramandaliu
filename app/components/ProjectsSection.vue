@@ -1,74 +1,86 @@
 <template>
   <div class="w-full bg-[#1a1a1a]">
     <div
-      class="w-full bg-[#212121] text-white py-8 lg:py-16 text-lg rounded-t-[50px] lg:rounded-t-[10%] shadow-lg"
+      class="bg-[url('/images/projects.jpg')] bg-cover bg-center bg-no-repeat w-full text-white py-8 lg:py-16 text-lg rounded-t-[50px] lg:rounded-t-[10%] shadow-lg relative overflow-hidden"
     >
-      <h2
-        class="w-full mx-auto text-6xl lg:text-8xl font-bebas text-center mt-8 lg:mt-12"
-      >
-        Projects
-      </h2>
-      <p
-        class="w-full px-4 max-w-[640px] text-center mx-auto text-sm lg:text-base"
-      >
-        Below are five selected projects that represent my signature work — from
-        interactive experiences to production-ready web platforms.
-      </p>
-      <div class="mt-4 flex items-center justify-center gap-3 text-white/60">
-        <span class="text-sm uppercase tracking-wider">or</span>
-
-        <a
-          href="/projects"
-          class="text-sm font-semibold text-yellow-500 hover:text-yellow-400 transition-colors underline underline-offset-4"
+      <div class="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+      <div class="relative z-1">
+        <h2
+          v-scroll-reveal
+          class="w-full mx-auto text-6xl lg:text-8xl font-bebas text-center mt-8 lg:mt-12"
         >
-          View all projects
-        </a>
-      </div>
-      <div class="w-full py-6 lg:py-12">
-        <ClientOnly>
-          <Swiper
-            class="hero-swiper w-full"
-            slides-per-view="auto"
-            centered-slides
-            :space-between="40"
-            :initial-slide="Math.floor(projectsData.length / 2)"
-            :modules="modules"
+          <Icon
+            class="text-center text-5xl lg:text-6xl block text-center w-full"
+            name="streamline-freehand:security-it-service"
+          />
+          Projects
+        </h2>
+        <p
+          v-scroll-reveal
+          class="w-full px-4 max-w-[640px] text-center mx-auto text-sm lg:text-base"
+        >
+          Below are five selected projects that represent my signature work —
+          from interactive experiences to production-ready web platforms.
+        </p>
+        <div
+          v-scroll-reveal
+          class="mt-4 flex items-center justify-center gap-3 text-white/60"
+        >
+          <span class="text-sm uppercase tracking-wider">or</span>
+          <NuxtLink
+            NuxtLink
+            to="/projects"
+            class="text-sm font-semibold text-yellow-500 hover:text-yellow-400 transition-colors underline underline-offset-4"
           >
-            <SwiperSlide
-              v-for="project in projectsData"
-              :key="project.id"
-              class="hero-slide"
+            View all projects
+          </NuxtLink>
+        </div>
+        <div v-scroll-reveal class="w-full py-6 lg:py-12">
+          <ClientOnly>
+            <Swiper
+              class="hero-swiper w-full"
+              slides-per-view="auto"
+              centered-slides
+              :space-between="40"
+              :initial-slide="Math.floor(projectsData.length / 2)"
+              :modules="modules"
             >
-              <div
-                class="relative w-full aspect-square lg:aspect-video bg-cover bg-center rounded-xl overflow-hidden"
-                :style="{
-                  backgroundImage: `url(/images/projects/${project.img})`,
-                }"
+              <SwiperSlide
+                v-for="project in projectsData"
+                :key="project.id"
+                class="hero-slide"
               >
-                <!-- content -->
                 <div
-                  class="slide-content absolute p-2 lg:p-6 bottom-0 left-0 z-30 opacity-0 translate-y-3 transition-all duration-400 ease-out"
+                  class="relative w-full aspect-square lg:aspect-video bg-cover bg-center rounded-xl overflow-hidden"
+                  :style="{
+                    backgroundImage: `url(/images/projects/${project.img})`,
+                  }"
                 >
-                  <p
-                    class="mb-0 lg:mb-2 w-max rounded bg-yellow-600 px-2 py-1 leading-none font-poppins text-[10px] lg:text-xs font-bold text-[#333]"
+                  <!-- content -->
+                  <div
+                    class="slide-content absolute p-2 lg:p-6 bottom-0 left-0 z-30 opacity-0 translate-y-3 transition-all duration-400 ease-out"
                   >
-                    {{ project.sup }}
-                  </p>
-                  <h3
-                    class="font-bebas text-lg lg:text-4xl text-white drop-shadow-lg"
-                  >
-                    {{ project.title }}
-                  </h3>
-                  <p
-                    class="px-2 py-1 border border-1 w-max rounded lg:mt-2 cursor-pointer text-xs lg:text-sm"
-                  >
-                    View Project
-                  </p>
+                    <p
+                      class="mb-0 lg:mb-2 w-max rounded bg-yellow-600 px-2 py-1 leading-none font-poppins text-[10px] lg:text-xs font-bold text-[#333]"
+                    >
+                      {{ project.sup }}
+                    </p>
+                    <h3
+                      class="font-bebas text-2xl lg:text-4xl text-white drop-shadow-lg mb-1"
+                    >
+                      {{ project.title }}
+                    </h3>
+                    <p
+                      class="px-2 py-1 border border-1 w-max rounded lg:mt-2 cursor-pointer text-xs lg:text-sm"
+                    >
+                      <a :href="project.url" target="_blank">View Project</a>
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </SwiperSlide>
-          </Swiper>
-        </ClientOnly>
+              </SwiperSlide>
+            </Swiper>
+          </ClientOnly>
+        </div>
       </div>
     </div>
   </div>
@@ -86,43 +98,43 @@ const modules = [EffectCoverflow, Navigation, Pagination, Controller];
 
 const projectsData = ref([
   {
-    id: "hari-film-nasional",
-    sup: "Interactive Website",
-    url: "https://interaktif.kompas.id/baca/permainan-populer-anak-indonesia/",
-    title: "Yuk, Mainkan Gim Permainan Tradisional!",
-    img: "permainan-tradisional-indonesia.png",
+    id: "bantimurung",
+    sup: "Game and Encyclopedia",
+    url: "https://interaktif.kompas.id/baca/kupu-kupu-bantimurung/",
+    title: "Mencari Kupu-kupu di Bantimurung",
+    img: "bantimurung.jpg",
     desc: "",
   },
   {
-    id: "hari-pahlawan",
-    sup: "Interactive Website",
-    url: "https://interaktif.kompas.id/baca/kumpulkan-gambar-pahlawan-dapatkan-promo-kemerdekaan/",
-    title: "Kolekasi Inspirasi Pahlawan Indonesia",
-    img: "kumpulkan-gambar-pahlawan.jpg",
+    id: "stadion-piala-dunia-rusia",
+    sup: "3D Interactive Website",
+    url: "https://interaktif.kompas.id/baca/stadion-rusia-2018/",
+    title: "12 Stadion Piala Dunia 2018",
+    img: "piala-dunia-rusia.jpg",
+    desc: "",
+  },
+  {
+    id: "sandenly",
+    sup: "Digital Invitation",
+    url: "https://sanden-ly-fallin.love/",
+    title: "#SanDenLyFallinLove",
+    img: "sandenly.jpg",
     desc: "",
   },
   {
     id: "hari-film-nasional",
-    sup: "Interactive Website",
+    sup: "Game and Quiz",
     url: "https://interaktif.kompas.id/baca/ketahui-fakta-film-nasional/",
     title: "Hari Film Nasional",
     img: "hari-film-nasional.jpg",
     desc: "",
   },
   {
-    id: "hari-film-nasional",
-    sup: "Game",
-    url: "https://interaktif.kompas.id/baca/permainan-populer-anak-indonesia/",
-    title: "Yuk, Mainkan Gim Permainan Tradisional!",
-    img: "permainan-tradisional-indonesia.png",
-    desc: "",
-  },
-  {
-    id: "hari-pahlawan",
-    sup: "Interactive Website",
-    url: "https://interaktif.kompas.id/baca/kumpulkan-gambar-pahlawan-dapatkan-promo-kemerdekaan/",
-    title: "Kolekasi Inspirasi Pahlawan Indonesia",
-    img: "kumpulkan-gambar-pahlawan.jpg",
+    id: "nft-kompas",
+    sup: "Company Profile",
+    url: "https://nft.kompas.id/",
+    title: "NFT Kompas",
+    img: "nft-kompas.jpg",
     desc: "",
   },
 ]);

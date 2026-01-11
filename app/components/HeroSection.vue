@@ -43,12 +43,14 @@
       </p>
     </div>
     <div class="flex flex-row lg:flex-col gap-4 absolute bottom-0 left-0 p-4">
-      <Icon name="brandico:linkedin-rect" class="text-white text-4xl" />
-      <Icon name="brandico:instagram" class="text-white text-4xl" />
-      <Icon
-        name="material-symbols-light:alternate-email-rounded"
-        class="text-white text-4xl"
-      />
+      <a
+        v-for="media in mediaSocial"
+        :key="media.icon"
+        :href="media.url"
+        target="_blank"
+      >
+        <Icon :name="media.icon" class="text-white text-4xl block" />
+      </a>
     </div>
   </div>
 </template>
@@ -56,6 +58,23 @@
 <script setup>
 import { useScroll } from "@vueuse/core";
 import { computed } from "vue";
+
+const mediaSocial = ref([
+  {
+    icon: "brandico:linkedin-rect",
+    url: "https://www.linkedin.com/in/denyramandaa/",
+  },
+
+  {
+    icon: "brandico:instagram",
+    url: "https://www.instagram.com/denyramandaa/",
+  },
+
+  {
+    icon: "material-symbols-light:alternate-email-rounded",
+    url: "mailto:denyramanda07@gmail.com",
+  },
+]);
 
 // reactive scroll position
 const { y } = useScroll(window);
