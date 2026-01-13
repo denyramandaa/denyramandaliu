@@ -17,7 +17,10 @@ onMounted(() => {
   }, 2200);
 });
 </script>
-<style scoped>
+<style>
+html {
+  scroll-behavior: smooth;
+}
 .loader-fade-enter-active,
 .loader-fade-leave-active {
   transition: opacity 0.6s ease;

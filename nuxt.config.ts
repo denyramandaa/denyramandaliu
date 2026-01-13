@@ -1,6 +1,28 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
+  app: {
+    head: {
+      charset: "utf-8",
+      viewport: "width=device-width, initial-scale=1",
+      title: "Deny Ramanda Liu",
+      meta: [
+        {
+          name: "description",
+          content:
+            "I’m senior front-end developer with over 9 years of experience building production-ready web applications for media, startups, and enterprise environments. I specialize in transforming complex requirements into clean, scalable, and maintainable interfaces, while ensuring performance, accessibility, and strong visual quality.",
+        },
+        {
+          name: "robots",
+          content:
+            "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        },
+      ],
+      htmlAttrs: {
+        lang: "en",
+      },
+    },
+  },
   devtools: { enabled: true },
   modules: ["@nuxtjs/tailwindcss", "@nuxtjs/google-fonts", "@nuxt/icon"],
   css: ["swiper/css", "swiper/css/navigation", "swiper/css/pagination"],

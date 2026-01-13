@@ -4,7 +4,6 @@
       class="w-full bg-[#1a1a1a] text-white py-8 lg:py-16 text-lg rounded-t-[50px] lg:rounded-t-[10%] shadow-lg"
     >
       <h2
-        v-scroll-reveal
         class="w-full mx-auto mb-6 lg:mb-10 text-6xl lg:text-8xl font-bebas text-center mt-8 lg:mt-12"
       >
         <Icon
@@ -12,7 +11,7 @@
           class="text-center text-5xl lg:text-6xl block text-center w-full translate-y-[6px]"
           name="streamline-freehand:programming-keyboard-type"
         />
-        What I Do?
+        <p v-scroll-reveal>What I Do?</p>
       </h2>
       <div class="w-full px-4 lg:px-0">
         <div
@@ -35,7 +34,7 @@
               >
               from concept to deployment.
             </p>
-            <p v-scroll-reveal class="text-sm font-poppins opacity-50 mt-2">
+            <p v-scroll-reveal class="text-sm font-poppins text-gray-500 mt-4">
               Vue/Nuxt, React/Next, Node, PHP, Google Cloud Platform, SQL,
               Tailwind, Wordpress, Laravel
             </p>
@@ -57,7 +56,7 @@
               >
               that enhance digital experiences.
             </p>
-            <p v-scroll-reveal class="text-sm font-poppins opacity-50 mt-2">
+            <p v-scroll-reveal class="text-sm font-poppins text-gray-500 mt-4">
               Figma, Blender 3D, Photoshop, After Effects, Premiere, Adobe
               Illustrator
             </p>
@@ -84,9 +83,10 @@
             </p>
           </div>
         </div>
-        <div class="mt-10">
+        <div class="mt-12">
           <p class="mb-4 text-center" v-scroll-reveal>
-            Want great interaction and a visually stunning website?
+            Want great interaction and a visually stunning website?<br>
+            Or maybe you’re looking for someone who can help lead your projects?
           </p>
           <div
             class="flex flex-col lg:flex-row items-center justify-center gap-4"
@@ -96,7 +96,7 @@
               :href="whatsAppLink"
               target="_blank"
               rel="noopener noreferrer"
-              class="w-max bg-yellow-600 text-gray-800 rounded-full px-6 py-2 cursor-pointer text-sm lg:text-lg font-bold"
+              class="w-max bg-yellow-600 text-[#1a1a1a] rounded-full px-6 py-2 cursor-pointer text-sm lg:text-lg font-bold"
             >
               Chat on WhatsApp
             </a>

@@ -6,14 +6,14 @@
       <div class="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
       <div class="relative z-1">
         <h2
-          v-scroll-reveal
           class="w-full mx-auto text-6xl lg:text-8xl font-bebas text-center mt-8 lg:mt-12"
         >
           <Icon
+            v-scroll-reveal
             class="text-center text-5xl lg:text-6xl block text-center w-full"
             name="streamline-freehand:security-it-service"
           />
-          Projects
+          <p v-scroll-reveal>Projects</p>
         </h2>
         <p
           v-scroll-reveal
